@@ -9,9 +9,60 @@
 </head>
 
 <body>
-    <div>
-        
+    <div class="w-screen h-screen flex gap-1 flex-col justify-center  border-8 bg-green-100  rounded-2xl border-green-400 items-center">
+        <div>
+            <h1 class="text-6xl font-mono animate-bounce font-thin">Tic-Tac-Toe game</h1>
+        </div>
+        <div class="w-1/2 h-2/3 rounded-lg bg-sky-400 flex justify-center items-center">
+            <div class="w-[98%] h-[97%] bg-white rounded-lg flex flex-col justify-between  items-center gap-3">
+                <h1 class="text-5xl font-sans mt-5 bg-sky-100 w-[90%]  rounded-lg text-center">Enter Players name</h1>
+                <form action="" class="flex flex-col justify-evenly  w-[90%] h-[90%] mb-10 items-center">
+                    <div class="flex h-[45px] items-center">
+                    <label for="player1" class="text-2xl   font-mono">Enter First<br>Player Name:</label>
+                    <input type="text" id="player1" class="border-2 border-blue-400 rounded-lg py-3 px-1 text-2xl font-mono  text-sky-500" >
+                    </div>
+                    <div class="flex ">
+                    <label for="player2" class="text-2xl   font-mono">Enter Second<br> Player Name:</label>
+                    <input type="text" id="player2" class="border-2 border-blue-400 rounded-lg py-3 px-1 text-2xl font-mono text-sky-500">
+                    </div>
+                    <input type="submit" value="Start Game"  id='start' class="text-4xl font-mono w-1/2 bg-sky-400 p-2 rounded-lg  cursor-pointer">
+                </form>
+            </div>
+
+            <!-- //dialog box -->
+            <dialog id="dialog" type="popup" class=" rounded-lg bg-white ">
+                <div id="upper" class="flex-col flex  h-full items-center gap-3 rounded-lg border-2 border-sky-400 m-2">
+                    <h1 class="text-4xl font-mono text-center rounded-lg bg-yellow-100 w-96">GAME STARTED</h1>
+                    <div class="flex flex-col gap-2 bg-yellow-50 w-full px-2">
+                        <p class="text-2xl font-mono">Player 1: <span id="player1Name"></span></p>
+                        <p class="text-2xl font-mono">Player 2: <span id="player2Name"></span></p>
+                    
+                    </div>
+                    <div class="  flex gap-3"><span class="text-lg underline underline-offset-2">Game Board</span><button id="reset" class="p-1 text-sm rounded-lg border-2 border-black/20 text-black bg-green-300 ">Reset</button></div>
+                    <div class=" w-96 h-96 border-2 flex justify-center items-center m-2">
+                        <div id="gameboard" class="grid grid-cols-3 grid-rows-3 gap-1">
+                            <p id="[0,0]"  class="w-24 h-24 border-2 cursor-pointer border-black flex justify-center items-center text-9xl  bg-yellow-200 rounded-md"></p>
+                            <p id="[0,1]" class="w-24 h-24 border-2 cursor-pointer border-black bg-yellow-200 rounded-md"></p>
+                            <p id="[0,2]" class="w-24 h-24 border-2 cursor-pointer border-black bg-yellow-200 rounded-md"></p>
+                            <p id="[1,0]" class="w-24 h-24 border-2 cursor-pointer border-black bg-yellow-200 rounded-md"></p>
+                            <p id="[1,1]" class="w-24 h-24 border-2  border-black cursor-pointer bg-yellow-200 rounded-md"></p>
+                            <p id="[1,2]" class="w-24 h-24 border-2 border-black cursor-pointer bg-yellow-200 rounded-md"></p>
+                            <p id="[2,0]" class="w-24 h-24 border-2 border-black cursor-pointer bg-yellow-200 rounded-md"></p>
+                            <p id="[2,1]" class="w-24 h-24 border-2 border-black cursor-pointer bg-yellow-200 rounded-md"></p>
+                            <p id="[2,2]" class="w-24 h-24 border-2 border-black cursor-pointer bg-yellow-200 rounded-md"></p>
+                            
+                        </div>
+                    </div>
+                    <div class="w-full flex justify-center items-center m-2  ">
+                        <p id ="result" class="font-mono text-2xl text-center rounded-lg bg-yellow-200 border-2 w-96">Playing...</p>
+                        
+                    </div>
+                    
+                </div>
+            </dialog>
+
+        </div>
+
     </div>
-    
 </body>
 </html>

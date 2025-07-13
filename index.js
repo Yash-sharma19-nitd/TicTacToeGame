@@ -1,5 +1,21 @@
+//list of all the variables used here : 
+const dialog= document.getElementById('dialog');
+const player1name= document.getElementById('player1');
+const player2name= document.getElementById('player2');
+const board= document.getElementById('gameboard');
+
+
+
 var gameboard = new Array();
-console.log(gameboard);
+let player1; 
+let player2;
+let turn = 0;
+
+
+
+
+
+//list of all the function :
 const gameboardgenerator = function (gameboard)
 {  
     for( let i = 0 ;i<3;i++)
@@ -16,35 +32,55 @@ const gameboardgenerator = function (gameboard)
 gameboardgenerator(gameboard);
 console.log(gameboard);
 
-let player1; 
-let player2;
 
-const playGame= function(gameboad, player1, player2)
+const playGame= function(gameboard, player1, player2,turn)
 {
-    
+    document.getElementById('start').addEventListener('click',function(e)
+    {
+    dialog.showModal();
+    e.preventDefault();
+    document.getElementById('player1Name').innerText=player1name.value ;
+    document.getElementById('player2Name').innerText=player2name.value ;
+    document.getElementById('reset').addEventListener('click',function()
+    {
+        gameboardgenerator(gameboard);
+        
+    });
+    })
+
     const isEmptyBoard = function(gameboard)
     {
     for( let i =0 ;i<3;i++)
     {
         for( let j= 0 ;j<3;j++)
         {
-            if( gameboard[i][j]==0) return 1; 
+            if( gameboard[i][j]==0) return 1; d
         }
     }
     return 0 ;
 }
-    let turn =0 ;
+    
     
     const playerTurn = function(gameboard,turn)
     {
         let symbol  ;
         (turn)?symbol='X':symbol='O';
-        
+        board.addEventListener('click',function(e)
+        {
+            if(e.target.id!='gameboard')
+            {
+                let [a,b] = e.target.id;
+                
+                
+            }
+        })
         //target form the e using the input and then change the gameboard 
-        
-        
-        
     }
+        
+        
+        
+        
+        
     const windecision = function(gameboard,turn)
     {
         let symbol;
@@ -78,9 +114,14 @@ const playGame= function(gameboad, player1, player2)
         
         
     }
-    while(isEmptyBoard(gameboad))
+    while(isEmptyBoard(gameboard))
     {
-        playerTurn(gameboad,turn);
+        if(turn)
+        {
+            document.getElementById('result').textContent = 'player-1 Turn';
+        }
+        else{document.getElementById('result').textContent = 'player-1 Turn'}
+        playerTurn(gameboard,turn);
         windecision(gameboard,turn);
         if( turn === windecision(gameboard,turn))
         {
@@ -97,3 +138,4 @@ const playGame= function(gameboad, player1, player2)
     
 }
 
+playGame(gameboard,player1,player2,turn);
