@@ -2,7 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-dialog{
-    -webkit-backdrop-filter: blur(10);
-    backdrop-filter: blur(20);
-}
+dialog::backdrop {
+    backdrop-filter: blur(10px);}
